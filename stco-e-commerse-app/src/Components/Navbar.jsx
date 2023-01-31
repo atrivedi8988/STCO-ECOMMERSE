@@ -39,7 +39,7 @@ const Navbar = () => {
           width={"100%"}
         >
           {/* // Logo of the Website */}
-          <Box onClick={()=>navigate("/")} border={"3px solid white"} p="10px">
+          <Box onClick={()=>navigate("/")} border={"3px solid white"} p="10px" _hover={{cursor:"pointer"}}>
             <Heading>E-COMMERCE</Heading>
           </Box>
 
@@ -58,7 +58,7 @@ const Navbar = () => {
           <HStack justifyContent={"center"} alignItems="center">
             <Text>Select your PIN Code |</Text>
             <BsCartFill />
-            <Text onClick={()=>navigate("/cart")}>Cart |</Text>
+            <Text  _hover={{cursor:"pointer"}} onClick={()=>navigate("/cart")}>Cart |</Text>
             <CgProfile />
             <Text>Login</Text>
           </HStack>

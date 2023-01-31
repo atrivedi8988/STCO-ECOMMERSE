@@ -18,6 +18,7 @@ function ProductCard({ data }) {
       variant="outline"
       onClick={()=>navigate(`/detailpage/${data.id}`)}
       gap="40px"
+      _hover={{cursor:"pointer"}}
     >
       <Image
         objectFit="cover"
