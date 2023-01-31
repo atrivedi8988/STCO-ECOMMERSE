@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
@@ -17,9 +16,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { singleProductsAction } from "../Store/products/product.action";
-import { cartAction } from "../Store/carts/cart.action";
 
 function ProductDetail() {
+    let cartArray = JSON.parse(localStorage.getItem("cart"))||[]
     const navigate = useNavigate()
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ function ProductDetail() {
     dispatch(singleProductsAction(id));
   }, [id]);
   return (
-    <Card maxW="xl" margin={"auto"}>
+    <Card maxW="xl" margin={"auto"} mb="300px">
       <CardBody>
         <Image
           src={singleData.image}
@@ -67,10 +66,14 @@ function ProductDetail() {
       <Divider />
       <CardFooter>
         <ButtonGroup spacing="2">
-          <Button onClick={()=>navigate("/checkoutPage")} variant="ghost" colorScheme="blue">
+          <Button onClick={()=>navigate("/checkout")} variant="ghost" colorScheme="blue">
             Checkout Page
           </Button>
-          <Button onClick={(data)=>{dispatch(cartAction(singleData))}} variant="solid" colorScheme="blue">
+          <Button onClick={()=>{
+            cartArray.push(singleData)
+            localStorage.setItem("cart",JSON.stringify(cartArray));
+            alert("added to the cart")
+          }} variant="solid" colorScheme="blue">
             Add to cart
           </Button>
         </ButtonGroup>

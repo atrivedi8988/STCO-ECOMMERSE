@@ -2,10 +2,8 @@ import {
   Box,
   Heading,
   HStack,
-  Image,
   Input,
   Text,
-  VStack,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -42,7 +40,7 @@ const Navbar = () => {
         >
           {/* // Logo of the Website */}
           <Box onClick={()=>navigate("/")} border={"3px solid white"} p="10px">
-            <Heading>E-COMMERSE</Heading>
+            <Heading>E-COMMERCE</Heading>
           </Box>
 
           {/* // Searching Input Box */}

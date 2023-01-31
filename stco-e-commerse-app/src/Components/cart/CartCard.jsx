@@ -1,23 +1,29 @@
 import React from "react";
 import {
   Card,
+  CardHeader,
   CardBody,
+  CardFooter,
   Image,
   Stack,
+  Button,
   Text,
   Heading,
   Box,
+  Select,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-function ProductCard({ data }) {
-  const navigate = useNavigate()
+function CartCard({ data }) {
+  const navigate = useNavigate();
+  
+  const handleChange = (e)=>{
+
+  }
   return (
     <Card
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
-      onClick={()=>navigate(`/detailpage/${data.id}`)}
-      gap="40px"
     >
       <Image
         objectFit="cover"
@@ -42,21 +48,22 @@ function ProductCard({ data }) {
             >
               {data.rating.rate} 🟌
             </Box>
-              &nbsp;&nbsp;{data.rating.count} Rating
+            &nbsp;&nbsp;{data.rating.count} Rating
           </Box>
-          <Text fontSize={"2xl"} fontWeight="600" py="2">₹ {data.price}</Text>
+          <Text fontSize={"2xl"} fontWeight="600" py="2">
+            ₹ {data.price}
+          </Text>
           <Text py="2">{data.description}</Text>
           <Text py="2">{data.category}</Text>
+          <Select onChange={handleChange} placeholder="Select option" size={"sm"}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </Select>
         </CardBody>
-{/* 
-        <CardFooter>
-          <Button variant="solid" colorScheme="blue">
-            Buy Latte
-          </Button>
-        </CardFooter> */}
       </Stack>
     </Card>
   );
 }
 
-export default ProductCard;
+export default CartCard;

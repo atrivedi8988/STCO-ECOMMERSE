@@ -9,3 +9,10 @@ export const GET_PRODUCTS_SUCCESS = "products/get/success"
 export const GET_SINGLE_PRODUCTS_LOADING = "single/products/get/loading"
 export const GET_SINGLE_PRODUCTS_ERROR = "single/products/get/error"
 export const GET_SINGLE_PRODUCTS_SUCCESS = "single/products/get/success"
+
+// Product category by action
+
+export const GET_CATE_PRODUCTS_LOADING = "cate/products/get/loading"
+export const GET_CATE_PRODUCTS_ERROR = "cate/products/get/error"
+export const GET_CATE_PRODUCTS_SUCCESS = "cate/products/get/success"
+

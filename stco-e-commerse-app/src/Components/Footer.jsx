@@ -1,19 +1,20 @@
 import React from "react";
-import playStore from "../images/playstore.png";
-import appStore from "../images/Appstore.png";
 import {
-  Box,
   Flex,
   Heading,
-  HStack,
-  Image,
   Text,
   VStack,
 } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
-    <Flex border={"1px solid red"} justifyContent="space-between" p={"20px"}>
+    <Flex
+      bgColor={"blackAlpha.500"}
+      justifyContent="space-between"
+      p={"20px"}
+      height="200px"
+      width={"100%"}
+    >
       <VStack justifyContent="center" alignItems={"center"}>
         <Heading size={"md"}>DOWNLOAD OUR APP</Heading>
         <Text textAlign={"center"}>
