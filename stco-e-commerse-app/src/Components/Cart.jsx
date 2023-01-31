@@ -11,12 +11,15 @@ import {
   Heading,
   Box,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 function Cart({ data }) {
+  const navigate = useNavigate()
   return (
     <Card
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
+      onClick={()=>navigate(`/detailpage/${data.id}`)}
     >
       <Image
         objectFit="cover"
@@ -47,12 +50,12 @@ function Cart({ data }) {
           <Text py="2">{data.description}</Text>
           <Text py="2">{data.category}</Text>
         </CardBody>
-
+{/* 
         <CardFooter>
           <Button variant="solid" colorScheme="blue">
             Buy Latte
           </Button>
-        </CardFooter>
+        </CardFooter> */}
       </Stack>
     </Card>
   );
