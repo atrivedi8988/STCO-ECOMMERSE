@@ -4,7 +4,7 @@ import Cart from '../Components/cart/Cart'
 import CheckoutPage from '../Components/checkout/CheckoutPage'
 import Home from '../Components/Home'
 import Order from '../Components/Order'
-import ProductDetail from '../Components/ProductDetail'
+import ProductDetail from '../Components/product/ProductDetail'
 
 const AllRoutes = () => {
   return (

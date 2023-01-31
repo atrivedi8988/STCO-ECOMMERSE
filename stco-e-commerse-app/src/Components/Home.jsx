@@ -12,7 +12,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { productCategoryAction, productsAction } from "../Store/products/product.action";
-import ProductCard from "./ProductCard";
+import ProductCard from "./product/ProductCard";
 
 const Home = () => {
   const navigate = useNavigate();

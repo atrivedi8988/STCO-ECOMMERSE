@@ -15,7 +15,7 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { singleProductsAction } from "../Store/products/product.action";
+import { singleProductsAction } from "../../Store/products/product.action";
 
 function ProductDetail() {
     let cartArray = JSON.parse(localStorage.getItem("cart"))||[]
