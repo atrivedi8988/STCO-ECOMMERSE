@@ -13,20 +13,23 @@ import {
   Button,
   Box,
 } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { singleProductsAction } from "../Store/products/product.action";
+import { cartAction } from "../Store/carts/cart.action";
 
 function ProductDetail() {
+    const navigate = useNavigate()
   const { id } = useParams();
   const dispatch = useDispatch();
   const { loading, error, singleData } = useSelector(
     (store) => store.singleProduct
   );
+  const {rate,count} = singleData.rating || ""
   useEffect(() => {
     dispatch(singleProductsAction(id));
-  }, []);
+  }, [id]);
   return (
     <Card maxW="xl" margin={"auto"}>
       <CardBody>
@@ -50,9 +53,9 @@ function ProductDetail() {
               bgColor={"green"}
               display="inline-block"
             >
-              {singleData.rating.rate} 🟌
+              {rate} 🟌
             </Box>
-            &nbsp;&nbsp;{singleData.rating.count} Rating
+            &nbsp;&nbsp;{count} Rating
           </Box>
           <Text>{singleData.description}</Text>
           <Text>{singleData.category}</Text>
@@ -64,10 +67,10 @@ function ProductDetail() {
       <Divider />
       <CardFooter>
         <ButtonGroup spacing="2">
-          <Button variant="solid" colorScheme="blue">
-            Buy now
+          <Button onClick={()=>navigate("/checkoutPage")} variant="ghost" colorScheme="blue">
+            Checkout Page
           </Button>
-          <Button variant="ghost" colorScheme="blue">
+          <Button onClick={(data)=>{dispatch(cartAction(singleData))}} variant="solid" colorScheme="blue">
             Add to cart
           </Button>
         </ButtonGroup>

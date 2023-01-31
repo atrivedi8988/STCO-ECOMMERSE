@@ -13,8 +13,10 @@ import React from "react";
 import { BsCartFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { MdLocationOn } from "react-icons/md"
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <>
       <Box
@@ -39,7 +41,7 @@ const Navbar = () => {
           width={"100%"}
         >
           {/* // Logo of the Website */}
-          <Box border={"3px solid white"} p="10px">
+          <Box onClick={()=>navigate("/")} border={"3px solid white"} p="10px">
             <Heading>E-COMMERSE</Heading>
           </Box>
 
@@ -58,7 +60,7 @@ const Navbar = () => {
           <HStack justifyContent={"center"} alignItems="center">
             <Text>Select your PIN Code |</Text>
             <BsCartFill />
-            <Text>Cart |</Text>
+            <Text onClick={()=>navigate("/cart")}>Cart |</Text>
             <CgProfile />
             <Text>Login</Text>
           </HStack>
