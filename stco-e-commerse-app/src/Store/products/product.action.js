@@ -1,4 +1,4 @@
-import { GET_CATE_PRODUCTS_ERROR, GET_CATE_PRODUCTS_LOADING, GET_CATE_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_SINGLE_PRODUCTS_ERROR, GET_SINGLE_PRODUCTS_LOADING, GET_SINGLE_PRODUCTS_SUCCESS } from "./product.task";
+import { GET_CATE_PRODUCTS_ERROR, GET_CATE_PRODUCTS_LOADING, GET_CATE_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_SINGLE_PRODUCTS_ERROR, GET_SINGLE_PRODUCTS_LOADING, GET_SINGLE_PRODUCTS_SUCCESS, UPDATE_PRODUCTS_ERROR, UPDATE_PRODUCTS_LOADING, UPDATE_PRODUCTS_SUCCESS } from "./product.task";
 import axios from "axios"
 
 
@@ -16,6 +16,22 @@ export const productsAction = ()=> async(dispatch)=>{
         dispatch({type:GET_PRODUCTS_ERROR})
     }
 }
+
+
+// Update Product Actions
+
+export const updateProductsAction = (update,id)=> async(dispatch)=>{
+    dispatch({type: UPDATE_PRODUCTS_LOADING});
+    try{
+        let res = await axios.patch(`https://fakestoreapi.com/products/${id}`,update)
+        dispatch({type:UPDATE_PRODUCTS_SUCCESS,payload: res.data})
+
+        return res.data
+    }catch(e){
+        dispatch({type:UPDATE_PRODUCTS_ERROR})
+    }
+}
+
 
 
 

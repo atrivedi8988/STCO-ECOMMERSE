@@ -1,4 +1,4 @@
-import { GET_CATE_PRODUCTS_ERROR, GET_CATE_PRODUCTS_LOADING, GET_CATE_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_SINGLE_PRODUCTS_ERROR, GET_SINGLE_PRODUCTS_LOADING, GET_SINGLE_PRODUCTS_SUCCESS } from "./product.task";
+import { GET_CATE_PRODUCTS_ERROR, GET_CATE_PRODUCTS_LOADING, GET_CATE_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, GET_SINGLE_PRODUCTS_ERROR, GET_SINGLE_PRODUCTS_LOADING, GET_SINGLE_PRODUCTS_SUCCESS, UPDATE_PRODUCTS_ERROR, UPDATE_PRODUCTS_LOADING, UPDATE_PRODUCTS_SUCCESS } from "./product.task";
 
 
 // Reducer inital data 
@@ -35,6 +35,40 @@ let initState = {
           loading: false,
           error: false,
           data: payload,
+        };
+      }
+  
+      default: {
+        return state;
+      }
+    }
+  };
+
+
+  
+  // Update Product Reducer 
+
+  export const updateProductsReducer = (state = initState, { type, payload }) => {
+    switch (type) {
+      case UPDATE_PRODUCTS_LOADING: {
+        return {
+          ...state,
+          loading: true,
+        };
+      }
+      case UPDATE_PRODUCTS_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+      case UPDATE_PRODUCTS_SUCCESS: {
+        console.log(payload)
+        return {
+          ...state,
+          loading: false,
+          error: false,
         };
       }
   

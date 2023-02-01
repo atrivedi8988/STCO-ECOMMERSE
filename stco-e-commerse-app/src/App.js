@@ -6,11 +6,11 @@ import AllRoutes from './Routes/AllRoutes';
 
 function App() {
   return (
-   <>
+   <div className='app'>
    <Navbar/>
    <AllRoutes/>
    <Footer/>
-   </>
+   </div>
   );
 }
 

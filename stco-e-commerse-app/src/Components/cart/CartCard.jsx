@@ -13,11 +13,15 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProductsAction } from "../../Store/products/product.action";
 function CartCard({ data }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const store = useSelector(store=>store.product)
   
-  const handleChange = (e)=>{
-
+  const handleChange = (e,id)=>{
+    
   }
   return (
     <Card
@@ -55,7 +59,7 @@ function CartCard({ data }) {
           </Text>
           <Text py="2">{data.description}</Text>
           <Text py="2">{data.category}</Text>
-          <Select onChange={handleChange} placeholder="Select option" size={"sm"}>
+          <Select onChange={(e)=>handleChange(e,data.id)} placeholder="Select option" size={"sm"}>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

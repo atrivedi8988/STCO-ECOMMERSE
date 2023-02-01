@@ -4,6 +4,13 @@ export const GET_PRODUCTS_LOADING = "products/get/loading"
 export const GET_PRODUCTS_ERROR = "products/get/error"
 export const GET_PRODUCTS_SUCCESS = "products/get/success"
 
+// Update product task 
+
+export const UPDATE_PRODUCTS_LOADING = "products/update/loading"
+export const UPDATE_PRODUCTS_ERROR = "products/update/error"
+export const UPDATE_PRODUCTS_SUCCESS = "products/update/success"
+
+
 // Single product task
 
 export const GET_SINGLE_PRODUCTS_LOADING = "single/products/get/loading"
